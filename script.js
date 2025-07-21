@@ -14,6 +14,7 @@ const translations = {
     	licensePlate:		"NUMMERPLAAT*",
     	safetyInstructions: 	"Ik verklaar dat ik de veiligheids- en brandveiligheidsinstructies heb gelezen en hiermee akkoord ga.",
     	denySafetyInstructions:	"Je ging niet akkoord met de veiligheids- en brandveiligheidsinstructies.\r\nRegistratie werd niet voltooid.",
+	notCompleted:		"Registratie werd niet voltooid.",
 	fillFieldCorrectly:	"Vul het veld correct in",
 	alertDataCleared:	"Opgeslagen gegevens gewist."
   },
@@ -31,6 +32,7 @@ const translations = {
     	licensePlate:		"PLAQUE D'IMMATRICULATION:*",
     	safetyInstructions:	"Je déclare avoir pris connaissance des consignes de sécurité et de prévention incendie, et de les accepter.",
     	denySafetyInstructions:	"Vous n'avez pas accepté les consignes de sécurité et de prévention incendie.\r\nL'enregistrement n'a pas été complété.",
+	notCompleted:		"L'enregistrement n'a pas été complété.",
 	fillFieldCorrectly:	"Veuillez remplir correctement le champ",
 	alertDataCleared:	"Données sauvegardées effacées."
   },
@@ -48,6 +50,7 @@ const translations = {
     	licensePlate:		"LICENSE PLATE:*",
     	safetyInstructions:	"I hereby declare that I have read and understood the safety and fire safety instructions, and I agree to comply with them.",
     	denySafetyInstructions:	"You didn't accept the safety and fire safety instructions.\r\nRegistration was not completed.",
+	notCompleted:		"Registration was not completed.",
 	fillFieldCorrectly:	"Please fill in the field correctly",
 	alertDataCleared:	"Saved data cleared."
   }
@@ -171,7 +174,12 @@ function promptUntilFilled(message)
     {
         input = prompt(message);
         // user canceled
-        if (input === null) return null;
+        if (input === null)
+	{
+		//Alert user that he did not complete the registration.
+		alert(t.notCompleted);
+		return null;
+	}
         input = input.trim();
         if (input) return input;
 
