@@ -205,10 +205,8 @@ function changeUrl(sFirstName, sLastName, sCompany, sForTheAttnOf, sMobilePhone,
   	`&re49fd0ad20d34430b025601c16a9d57e=${encodeURIComponent(sForTheAttnOf)}` +
   	`&r21fd90a5337d4eaa8d962be8942e194c=${encodeURIComponent(sMobilePhone)}` +
   	`&r315d8eb127c640588a49c28f0cc1eb5d=${encodeURIComponent(sLicensePlate)}` +
-  	`&r6027fdc8f9d4412e93d99ef17c6dcb2b=%22Ik%20verklaar%20dat%20ik%20de%C2%A0veiligheids-%20en%20brandveiligheidsinstructies%20heb%20gelezen%20en%20hiermee%20akkoord%20ga.%22` +
+  	`&r6027fdc8f9d4412e93d99ef17c6dcb2b=${encodeURIComponent("Ik verklaar dat ik de veiligheids- en brandveiligheidsinstructies heb gelezen en hiermee akkoord ga.")}` +
   	`&embed=true`;
-
-	alert(site);
 
     	document.getElementsByName('ifrVisitorRegistration')[0].src = site;
 }
