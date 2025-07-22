@@ -13,7 +13,7 @@ iframe {
 button {
     all: unset;
     position: absolute;
-    top: 2px;
+    top: 20px;
     left: 2px;
     z-index: 10;
     padding: 10px 20px;
