@@ -13,8 +13,8 @@ iframe {
 button {
     all: unset;
     position: absolute;
-    top: 20px;
-    left: 2px;
+    top: 2px;
+    right: 2px;
     z-index: 10;
     padding: 10px 20px;
     font-size: 2.4rem;
@@ -42,5 +42,6 @@ body {
     button {
         font-size: 1.4rem;
         padding: 8px 16px;
+        top: 20px;
     }
 }
