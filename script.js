@@ -81,7 +81,7 @@ function setCookie(cname,cvalue,exdays)
   	d.setTime(d.getTime() + (exdays*24*60*60*1000));
   	let expires = "expires=" + d.toUTCString();
   	let value = typeof cvalue === 'object' ? JSON.stringify(cvalue) : cvalue;
-  	document.cookie = `${cname}=${value};${expires};path=/`;
+  	document.cookie = `${cname}=${value};${expires};path=/;SameSite=Lax;Secure`;
 }
 
 //Retrieve the Cookie.
@@ -150,9 +150,12 @@ function checkCookie()
     				let userInfo = {sFirstName, sLastName, sCompany, sForTheAttnOf, sMobilePhone, sLicensePlate};
 
     				setCookie("cVisitorThule", userInfo, 365);
-
-        			alert(t.newConcept);
-        			changeUrl(sFirstName, sLastName, sCompany, sForTheAttnOf, sMobilePhone, sLicensePlate);
+				
+				//Set a timeout so the Cookie has time to be written to disk.
+				setTimeout(() => {
+        				alert(t.newConcept);
+        				changeUrl(sFirstName, sLastName, sCompany, sForTheAttnOf, sMobilePhone, sLicensePlate);
+				}, 100);
             		}
             		else
             		{
