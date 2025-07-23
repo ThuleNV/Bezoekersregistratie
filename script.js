@@ -16,6 +16,7 @@ const translations = {
     	denySafetyInstructions:	"Je ging niet akkoord met de veiligheids- en brandveiligheidsinstructies.\r\nRegistratie werd niet voltooid.",
 	notCompleted:		"Registratie werd niet voltooid.",
 	fillFieldCorrectly:	"Vul het veld correct in",
+	alertClearData:		"Bent u zeker dat u de opgeslagen gegevens wenst te wissen?",
 	alertDataCleared:	"Opgeslagen gegevens gewist."
   },
   fr: {
@@ -34,6 +35,7 @@ const translations = {
     	denySafetyInstructions:	"Vous n'avez pas accepté les consignes de sécurité et de prévention incendie.\r\nL'enregistrement n'a pas été complété.",
 	notCompleted:		"L'enregistrement n'a pas été complété.",
 	fillFieldCorrectly:	"Veuillez remplir correctement le champ",
+	alertClearData:		"Êtes-vous sûr de vouloir effacer les données enregistrées ?",
 	alertDataCleared:	"Données sauvegardées effacées."
   },
   en: {
@@ -52,6 +54,7 @@ const translations = {
     	denySafetyInstructions:	"You didn't accept the safety and fire safety instructions.\r\nRegistration was not completed.",
 	notCompleted:		"Registration was not completed.",
 	fillFieldCorrectly:	"Please fill in the field correctly",
+	alertClearData:		"Are you sure you want to delete the stored data?",
 	alertDataCleared:	"Saved data cleared."
   }
 };
@@ -193,16 +196,19 @@ function promptUntilFilled(message)
 
 function deleteCookie(cname)
 {
-	let user = getCookie(""+cname);
+	if (confirm(alertClearData))
+	{
+		let user = getCookie(cname);
 
-  	if (user)
-    	{
-    		document.cookie = cname + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    	}
+  		if (user)
+    		{
+    			document.cookie = cname + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    		}
 	
-	alert(t.alertDataCleared);
+		alert(t.alertDataCleared);
     
-  	location.replace('https://ThuleNV.github.io/Bezoekersregistratie/');
+  		location.replace('https://ThuleNV.github.io/Bezoekersregistratie/');
+	}
 }
 
 function changeUrl(sFirstName, sLastName, sCompany, sForTheAttnOf, sMobilePhone, sLicensePlate)
