@@ -12,7 +12,7 @@ iframe {
 
 button {
     all: unset;
-    position: absolute;
+    position: fixed;
     top: 2px;
     right: 22px;
     z-index: 10;
