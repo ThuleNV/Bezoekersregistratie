@@ -40,9 +40,10 @@ body {
 
 @media (max-width: 600px) {
     button {
+	background-color: rgba(0, 0, 0, 0.6);
         font-size: 1.4rem;
         padding: 8px 16px;
         top: 61px;
-	    right: 10px;
+	right: 10px;
     }
 }
