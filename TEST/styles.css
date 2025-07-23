@@ -41,7 +41,7 @@ body {
 @media (max-width: 600px) {
     button {
 	background-color: rgba(0, 0, 0, 0.6);
-        font-size: 0.95rem;
+        font-size: 0.96rem;
         padding: 8px 16px;
         top: 61px;
 	right: 54px;
