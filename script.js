@@ -196,7 +196,7 @@ function promptUntilFilled(message)
 
 function deleteCookie(cname)
 {
-	if (confirm(alertClearData))
+	if (confirm(t.alertClearData))
 	{
 		let user = getCookie(cname);
 
