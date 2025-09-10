@@ -4,7 +4,7 @@ const translations = {
 	clearData: 		"Opgeslagen gegevens wissen",
 	welcome1: 		"Welkom terug",
    	welcome2: 		"van",
-    	newConcept: 		"Kies altijd 'Nieuw concept' wanneer gevraagd.\r\nScan de QR code en verzend het formulier bij zowel aankomst als bij vertrek.",
+    	newConcept: 		"Verzend het formulier om uw (in-/uit)schrijving af te ronden.",
     	cookies: 		"Cookies toestaan om uw gegevens voor toekomstige bezoeken te onthouden?",
     	firstName: 		"VOORNAAM:*",
     	lastName: 		"NAAM:*",
@@ -23,7 +23,7 @@ const translations = {
 	clearData:		"Effacer les données enregistrées",
     	welcome1:		"Bienvenu de retour",
     	welcome2:		"de",
-    	newConcept:		"Choisissez toujours 'Nouveau concept' lorsqu'on vous le demande.\r\nScannez le code QR et soumettez le formulaire à la fois à l'arrivée et au départ.",
+    	newConcept:		"Veuillez envoyer le formulaire pour finaliser votre inscription/désinscription.",
     	cookies:		"Autoriser les cookies pour mémoriser vos données lors de prochaines visites ?",
     	firstName:		"PRENOM:*",
     	lastName:		"NOM:*",
@@ -42,7 +42,7 @@ const translations = {
 	clearData:		"Clear saved data",
     	welcome1:		"Welcome back",
     	welcome2:		"from",
-    	newConcept:		"Always choose 'New concept' when asked.\r\nScan the QR code and submit the form both upon arrival and departure.",
+    	newConcept:		"Please submit the form to complete your check-in/check-out.",
     	cookies:		"Allow cookies to remember your data for future visits?",
     	firstName:		"FIRST NAME:*",
     	lastName:		"LAST NAME:*",
@@ -227,5 +227,6 @@ function changeUrl(sFirstName, sLastName, sCompany, sForTheAttnOf, sMobilePhone,
 
     	document.getElementsByName('ifrVisitorRegistration')[0].src = site;
 }
+
 
 init();
