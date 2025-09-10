@@ -158,7 +158,7 @@ function checkCookie()
 				setTimeout(() => {
         				alert(t.newConcept);
         				changeUrl(sFirstName, sLastName, sCompany, sForTheAttnOf, sMobilePhone, sLicensePlate);
-				}, 100);
+				}, 500);
             		}
             		else
             		{
@@ -230,3 +230,4 @@ function changeUrl(sFirstName, sLastName, sCompany, sForTheAttnOf, sMobilePhone,
 
 
 init();
+
