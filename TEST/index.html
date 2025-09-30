@@ -1,30 +1,41 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>Visitor Registration</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  styles.css
-</head>
-<body>
-  <!-- Clear data button (text set by JS based on language) -->
-  <button id="clearData"></button>
+  <head>
+    <meta charset="utf-8" />
+    <title>Bezoekersregistratie</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="./styles.css" rel="stylesheetSame UI: full-screen form iframe + clear-data button -->
+    <iframe name="ifrVisitorRegistration" src="" aria-label="Visitor Registration Form"></iframe>
+    <button id="clearData">Opgeslagen gegevens wissen</button>
 
-  <!-- Fullscreen Microsoft Forms iframe -->
-  <iframe name="ifrVisitorRegistration" title="Visitor registration form" allow="clipboard-write"></iframe>
+    <!-- Reusable modal (replaces alert/confirm/prompt) -->
+    <div
+      id="modalAlert"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalAlertTitle"
+      aria-describedby="modalAlertMsg">
+      <div class="box">
+        <h2 id="modalAlertTitle" class="visually-hidden">Bericht</h2>
 
-  <!-- Modal root (custom, non-blocking) -->
-  <div id="modal" class="modal hidden" aria-hidden="true">
-    <div class="modal__backdrop" data-close></div>
-    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="modal__close" aria-label="Close" data-close>&times;</button>
-      <div id="modalContent"></div>
+        <!-- Message area -->
+        <div id="modalAlertMsg" class="message" aria-live="polite"></div>
+
+        <!-- Prompt input (shown only for prompt) -->
+        <div class="prompt-field" id="modalPromptField" hidden>
+          <input
+            id="modalPromptInput"
+            class="prompt-input"
+            type="text"
+            autocomplete="off"
+            inputmode="text"
+          />
+        </div>
+
+        <!-- Action buttons (OK / Cancel) get injected here -->
+        <div class="actions" id="modalActions"></div>
+      </div>
     </div>
-  </div>
 
-  <!-- Toasts -->
-  <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
-
-  script.js</script>
-</body>
+    <script src="./script.js"body>
 </html>
