@@ -1,13 +1,30 @@
-<!DOCTYPE html>
-<html lang="nl">
+<!doctype html>
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="script.js" defer></script>
-	<link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <title>Visitor Registration</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  styles.css
 </head>
 <body>
-	<iframe name="ifrVisitorRegistration"></iframe>
-	<button type="button" id="clearData">Opgeslagen gegevens wissen</button>
+  <!-- Clear data button (text set by JS based on language) -->
+  <button id="clearData"></button>
+
+  <!-- Fullscreen Microsoft Forms iframe -->
+  <iframe name="ifrVisitorRegistration" title="Visitor registration form" allow="clipboard-write"></iframe>
+
+  <!-- Modal root (custom, non-blocking) -->
+  <div id="modal" class="modal hidden" aria-hidden="true">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal__close" aria-label="Close" data-close>&times;</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- Toasts -->
+  <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  script.js</script>
 </body>
 </html>

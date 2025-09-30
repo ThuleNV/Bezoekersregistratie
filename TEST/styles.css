@@ -1,49 +1,144 @@
+/* === Full-screen embed (kept) === */
 iframe {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    border: none;
-    display: block;
-    background: transparent;
-    z-index: 0;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  border: none; display: block;
+  background: transparent;
+  z-index: 0;
 }
 
-button {
-    all: unset;
-    position: absolute;
-    top: 2px;
-    right: 22px;
-    z-index: 10;
-    padding: 10px 20px;
-    font-size: 2.4rem;
-    color: #FFFFFF;
-    background-color: #756A65;
-    cursor: pointer;
-    font-weight: 600;
-    border-radius: 4px;
-    border: 1px solid transparent;
-    text-align: center;
+body { margin: 0; padding: 0; overflow: hidden; }
+
+/* === Clear Data button: scoped styling (uses your colors) === */
+#clearData {
+  all: unset;
+  position: absolute;
+  top: 2px; right: 22px;
+  z-index: 10;
+  padding: 10px 20px;
+  font-size: 2.4rem;
+  color: #FFFFFF;
+  background-color: #756A65; /* primary */
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  text-align: center;
 }
-
-    button:hover {
-        background-color: #5B534F;
-        color: #EFEEED;
-    }
-
-body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+#clearData:hover {
+  background-color: #5B534F; /* darker hover */
+  color: #EFEEED;
 }
 
 @media (max-width: 600px) {
-    button {
-	background-color: rgba(0, 0, 0, 0.6);
-        font-size: 0.97rem;
-        padding: 8px 16px;
-        top: 61px;
-	right: 54px;
-    }
+  #clearData {
+    background-color: rgba(0, 0, 0, 0.6);
+    font-size: 0.97rem;
+    padding: 8px 16px;
+    top: 61px;
+    right: 54px;
+  }
+}
+
+/* === Modal / Toast components (themed to your palette) === */
+.modal.hidden { display: none; }
+.modal__backdrop {
+  position: fixed; inset: 0;
+  background: rgba(0, 0, 0, .45);
+  backdrop-filter: blur(2px);
+  z-index: 100;
+}
+.modal__dialog {
+  position: fixed; inset: 0;
+  margin: auto;
+  width: min(640px, 92vw);
+  max-height: 85vh; overflow: auto;
+  background: #ffffff; color: #1f1f1f;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, .28);
+  z-index: 101;
+  padding: 20px 22px 16px;
+}
+.modal__close {
+  position: absolute;
+  top: 8px; right: 10px;
+  border: none; background: none;
+  font-size: 28px; line-height: 1;
+  cursor: pointer; color: #5B534F; /* darker */
+}
+
+.modal__title {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #5B534F; /* darker heading */
+}
+.modal__body {
+  margin: 8px 0 16px;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.modal__actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+.btn {
+  appearance: none;
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+.btn--primary {
+  background: #756A65; /* primary */
+  color: #fff;
+}
+.btn--primary:hover { background: #5B534F; }
+.btn--ghost {
+  background: #EFEFEF;
+  color: #222;
+}
+.btn--danger {
+  background: #b3261e;
+  color: #fff;
+}
+
+/* Prompt input */
+.form-field { display: flex; flex-direction: column; gap: 8px; }
+.form-field label { font-weight: 700; color: #5B534F; }
+.form-field input {
+  font-size: 1rem; padding: 10px 12px; border-radius: 8px;
+  border: 1px solid #cfcfcf;
+}
+.form-hint { font-size: 0.85rem; color: #555; }
+
+/* Toasts */
+.toast-container {
+  position: fixed; bottom: 18px; left: 50%;
+  transform: translateX(-50%);
+  display: grid; gap: 8px; z-index: 200;
+}
+.toast {
+  background: #2b2b2b;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  box-shadow: 0 6px 26px rgba(0,0,0,.3);
+  animation: toast-in .2s ease-out;
+}
+@keyframes toast-in {
+  from { opacity: 0; transform: translateX(-50%) translateY(8px); }
+}
+
+/* Make modal content comfortable on small screens */
+@media (max-width: 600px) {
+  .modal__dialog { width: 92vw; }
 }
