@@ -4,11 +4,12 @@
     <meta charset="utf-8" />
     <title>Bezoekersregistratie</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="./styles.css" rel="stylesheetSame UI: full-screen form iframe + clear-data button -->
+    <link href="./styles.css" rel="stylesheet"ame UI: full-screen form iframe + clear-data button -->
     <iframe name="ifrVisitorRegistration" src="" aria-label="Visitor Registration Form"></iframe>
     <button id="clearData">Opgeslagen gegevens wissen</button>
 
-    <!-- Reusable modal (replaces alert/confirm/prompt) -->
+    <!-- Reusable modal (replaces alert/confirm/prompt).
+         The script will auto-create this if it's missing. -->
     <div
       id="modalAlert"
       role="dialog"
@@ -37,5 +38,7 @@
       </div>
     </div>
 
-    <script src="./script.js"body>
+    <!-- ✅ Correct script include (defer recommended) -->
+    ./script.js</script>
+  </body>
 </html>

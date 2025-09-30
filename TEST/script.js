@@ -71,13 +71,66 @@ const langCode = sUserLang.startsWith("nl") ? "nl" : sUserLang.startsWith("fr") 
 const t = translations[langCode];
 
 /* ------------------------------------------------------------------ */
-/* Reusable modal helpers: alert/confirm/prompt with focus trap        */
+/* Modal helpers: alert/confirm/prompt with focus trap + auto-inject   */
 /* ------------------------------------------------------------------ */
-const modalEl = document.getElementById("modalAlert");
-const msgEl = document.getElementById("modalAlertMsg");
-const actionsEl = document.getElementById("modalActions");
-const promptFieldEl = document.getElementById("modalPromptField");
-const promptInputEl = document.getElementById("modalPromptInput");
+
+let modalEl, msgEl, actionsEl, promptFieldEl, promptInputEl;
+
+function createModalIfNeeded() {
+  modalEl = document.getElementById("modalAlert");
+  if (modalEl) {
+    msgEl = document.getElementById("modalAlertMsg");
+    actionsEl = document.getElementById("modalActions");
+    promptFieldEl = document.getElementById("modalPromptField");
+    promptInputEl = document.getElementById("modalPromptInput");
+    return;
+  }
+
+  // Build the modal via DOM API (safe for CSP)
+  modalEl = document.createElement("div");
+  modalEl.id = "modalAlert";
+  modalEl.setAttribute("role", "dialog");
+  modalEl.setAttribute("aria-modal", "true");
+  modalEl.setAttribute("aria-labelledby", "modalAlertTitle");
+  modalEl.setAttribute("aria-describedby", "modalAlertMsg");
+
+  const box = document.createElement("div");
+  box.className = "box";
+
+  const h2 = document.createElement("h2");
+  h2.id = "modalAlertTitle";
+  h2.className = "visually-hidden";
+  h2.textContent = "Bericht";
+
+  msgEl = document.createElement("div");
+  msgEl.id = "modalAlertMsg";
+  msgEl.className = "message";
+  msgEl.setAttribute("aria-live", "polite");
+
+  promptFieldEl = document.createElement("div");
+  promptFieldEl.className = "prompt-field";
+  promptFieldEl.id = "modalPromptField";
+  promptFieldEl.hidden = true;
+
+  promptInputEl = document.createElement("input");
+  promptInputEl.id = "modalPromptInput";
+  promptInputEl.className = "prompt-input";
+  promptInputEl.type = "text";
+  promptInputEl.setAttribute("autocomplete", "off");
+  promptInputEl.setAttribute("inputmode", "text");
+  promptFieldEl.appendChild(promptInputEl);
+
+  actionsEl = document.createElement("div");
+  actionsEl.className = "actions";
+  actionsEl.id = "modalActions";
+
+  box.appendChild(h2);
+  box.appendChild(msgEl);
+  box.appendChild(promptFieldEl);
+  box.appendChild(actionsEl);
+  modalEl.appendChild(box);
+  document.body.appendChild(modalEl);
+}
 
 function getFocusableElements(root) {
   const focusables = root.querySelectorAll(
@@ -85,23 +138,19 @@ function getFocusableElements(root) {
     'button:not([disabled]), [tabindex]:not([tabindex="-1"])'
   );
   return Array.from(focusables).filter(el => {
-    // Filter invisible elements
     const style = window.getComputedStyle(el);
     return style.visibility !== "hidden" && style.display !== "none";
   });
 }
 
 function openModal({ message, type = "alert", defaultValue = "" }) {
-  msgEl.textContent = String(message ?? "");
+  createModalIfNeeded();
 
-  // Reset prompt field
+  msgEl.textContent = String(message ?? "");
   promptFieldEl.hidden = true;
   promptInputEl.value = "";
-
-  // Build actions
   actionsEl.innerHTML = "";
 
-  // Track previously focused element to restore after close
   const previouslyFocused = document.activeElement;
 
   return new Promise((resolve) => {
@@ -115,8 +164,8 @@ function openModal({ message, type = "alert", defaultValue = "" }) {
       modalEl.classList.remove("active");
       actionsEl.innerHTML = "";
 
-      // Restore focus
-      if (previouslyFocused && typeof previouslyFocused.focus === "function") {
+      // Restore focus to the original invoker, if still in DOM
+      if (previouslyFocused && typeof previouslyFocused.focus === "function" && document.contains(previouslyFocused)) {
         setTimeout(() => previouslyFocused.focus(), 0);
       }
 
@@ -124,7 +173,7 @@ function openModal({ message, type = "alert", defaultValue = "" }) {
     };
 
     const onKey = (e) => {
-      // Focus trap: keep Tab navigation within the modal
+      // Focus trap
       if (e.key === "Tab") {
         const focusables = getFocusableElements(modalEl);
         if (focusables.length > 0) {
@@ -144,7 +193,6 @@ function openModal({ message, type = "alert", defaultValue = "" }) {
             }
           }
         } else {
-          // If nothing focusable, swallow Tab
           e.preventDefault();
         }
         return;
@@ -168,7 +216,7 @@ function openModal({ message, type = "alert", defaultValue = "" }) {
       }
     };
 
-    // Create buttons (anchors used so we don't affect global `button{...}` CSS)
+    // Build action buttons (anchors so global button CSS won't interfere)
     const okBtn = document.createElement("a");
     okBtn.href = "#";
     okBtn.className = "modal-btn";
@@ -200,18 +248,16 @@ function openModal({ message, type = "alert", defaultValue = "" }) {
 
     document.addEventListener("keydown", onKey);
 
-    // Show the modal
+    // Show modal
     modalEl.classList.add("active");
 
-    // Initial focus target
+    // Initial focus
     setTimeout(() => {
       if (type === "prompt") {
         promptInputEl.focus();
-        // place caret at end
         const len = promptInputEl.value.length;
         try { promptInputEl.setSelectionRange(len, len); } catch (_) {}
       } else {
-        // Prefer the first focusable action; fallback to container for safety
         const focusables = getFocusableElements(modalEl);
         if (focusables.length) focusables[0].focus();
         else modalEl.focus({ preventScroll: true });
@@ -220,42 +266,43 @@ function openModal({ message, type = "alert", defaultValue = "" }) {
   });
 }
 
-function showAlert(message) {
-  return openModal({ message, type: "alert" });
-}
-function showConfirm(message) {
-  return openModal({ message, type: "confirm" });
-}
-function showPrompt(message, defaultValue = "") {
-  return openModal({ message, type: "prompt", defaultValue });
-}
+function showAlert(message)             { return openModal({ message, type: "alert"   }); }
+function showConfirm(message)           { return openModal({ message, type: "confirm" }); }
+function showPrompt(message, defValue=""){ return openModal({ message, type: "prompt", defaultValue: defValue }); }
 
 /* ------------------------------------------------------------------ */
 /* Core logic (native dialogs fully replaced; behavior preserved)      */
 /* ------------------------------------------------------------------ */
 
-// Function that starts when the page is loaded.
 async function init() {
-  // Bind the function deleteCookie to the Button clearData.
-  const clearBtn = document.getElementById('clearData');
-  if (clearBtn) {
-    clearBtn.addEventListener('click', async () => { await deleteCookie('cVisitorThule'); });
+  // Ensure Clear Data button exists (create if missing)
+  let clearBtn = document.getElementById('clearData');
+  if (!clearBtn) {
+    clearBtn = document.createElement('button');
+    clearBtn.id = 'clearData';
+    clearBtn.textContent = t.clearData;
+    document.body.appendChild(clearBtn);
+  } else {
+    clearBtn.textContent = t.clearData; // safe now
   }
 
-  // Change the document and button language.
+  clearBtn.addEventListener('click', async () => { await deleteCookie('cVisitorThule'); });
+
+  // Set document language
   document.documentElement.lang = langCode;
-  document.getElementById("clearData").innerHTML = t.clearData;
 
   await checkCookie();
 }
 
-// Set the Cookie (synchronous).
+// Set the Cookie (synchronous). Use Secure only on https.
 function setCookie(cname, cvalue, exdays) {
   const d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
   const expires = "expires=" + d.toUTCString();
   const value = typeof cvalue === 'object' ? JSON.stringify(cvalue) : cvalue;
-  document.cookie = `${cname}=${value};${expires};path=/;SameSite=Lax;Secure`;
+  const base = `${cname}=${value};${expires};path=/;SameSite=Lax`;
+  const secure = (location.protocol === 'https:') ? ';Secure' : '';
+  document.cookie = base + secure;
 }
 
 // Retrieve the Cookie.
@@ -267,18 +314,13 @@ function getCookie(cCookieName) {
     const c = ca[i].trim();
     if (c.indexOf(name) === 0) {
       const value = c.substring(name.length, c.length);
-      try {
-        // If it's a JSON string.
-        return JSON.parse(value);
-      } catch (e) {
-        return value;
-      }
+      try { return JSON.parse(value); } catch (_) { return value; }
     }
   }
   return null;
 }
 
-// Check if the Cookie exists, if it doesn't create it.
+// Check if the Cookie exists; otherwise collect and set it.
 async function checkCookie() {
   const user = getCookie("cVisitorThule");
   if (user && user.sFirstName && user.sLastName && user.sCompany && user.sForTheAttnOf && user.sMobilePhone && user.sLicensePlate) {
@@ -300,7 +342,6 @@ async function checkCookie() {
         const userInfo = { sFirstName, sLastName, sCompany, sForTheAttnOf, sMobilePhone, sLicensePlate };
         setCookie("cVisitorThule", userInfo, 365);
 
-        // No cookie delay needed — document.cookie is synchronous.
         await showAlert(t.newConcept);
         changeUrl(sFirstName, sLastName, sCompany, sForTheAttnOf, sMobilePhone, sLicensePlate);
       } else {
@@ -314,19 +355,15 @@ async function checkCookie() {
 
 // Keep prompting until the data is filled in correctly.
 async function promptUntilFilled(message) {
-  let input;
-  // eslint-disable-next-line no-constant-condition
   while (true) {
-    input = await showPrompt(message);
-    // user canceled
+    let input = await showPrompt(message);
     if (input === null) {
-      await showAlert(t.notCompleted);  // Inform user registration not completed.
+      await showAlert(t.notCompleted);
       return null;
     }
     input = String(input).trim();
     if (input) return input;
 
-    // Inform user that input was empty or invalid.
     await showAlert(`${t.fillFieldCorrectly}:\n${message}`);
   }
 }
