@@ -120,13 +120,12 @@ function checkCookie() {
         const firstPart = isEven ? t.goodbye1 : t.welcome1;
         const secondPart = isEven ? t.goodbye2 : t.welcome2;
 	
-	if (confirm(`${firstPart} ${user.sFirstName} ${user.sLastName} ${secondPart} ${user.sCompany}!`)) {
+	alert(`${firstPart} ${user.sFirstName} ${user.sLastName} ${secondPart} ${user.sCompany}!`)
+	setCookie("cVisitorThule", user, 365);
+        setTimeout(() => {
 	    alert(isEven ? t.newConceptGoodbye : t.newConceptWelcome);
-	    setCookie("cVisitorThule", user, 365);
-            setTimeout(() => {
-                changeUrl(user.sFirstName, user.sLastName, user.sCompany, user.sForTheAttnOf, user.sMobilePhone, user.sLicensePlate);
-            }, 500);
-	}
+            changeUrl(user.sFirstName, user.sLastName, user.sCompany, user.sForTheAttnOf, user.sMobilePhone, user.sLicensePlate);
+        }, 500);
     } else {
         let consent = confirm(t.cookies);
         if (consent) {
