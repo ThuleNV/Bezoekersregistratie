@@ -126,7 +126,6 @@ function checkCookie() {
             alert(isEven ? t.newConceptGoodbye : t.newConceptWelcome);
             changeUrl(user.sFirstName, user.sLastName, user.sCompany, user.sForTheAttnOf, user.sMobilePhone, user.sLicensePlate);
         }, 500);
-    }
     } else {
         let consent = confirm(t.cookies);
         if (consent) {
