@@ -1,5 +1,3 @@
-// Corrected scriptNOTWORKING.js
-
 //Module variables.
 const translations = {
     nl: {
@@ -8,8 +6,8 @@ const translations = {
         welcome2: "van",
         goodbye1: "Tot ziens",
         goodbye2: "van",
-        newConceptWelcome: "Verzend het formulier om uw inschrijving af te ronden.",
-        newConceptGoodbye: "Verzend het formulier om uw uitschrijving af te ronden.",
+        newConceptWelcome: "Verzend het formulier onderdaan de volgende pagina om uw inschrijving af te ronden.",
+        newConceptGoodbye: "Verzend het formulier onderdaan de volgende pagina om uw uitschrijving af te ronden.",
         cookies: "Cookies toestaan om uw gegevens voor toekomstige bezoeken te onthouden?",
         firstName: "VOORNAAM:*",
         lastName: "NAAM:*",
@@ -30,8 +28,8 @@ const translations = {
         welcome2: "de",
         goodbye1: "Au revoir",
         goodbye2: "de",
-        newConceptWelcome: "Veuillez envoyer le formulaire pour finaliser votre inscription.",
-        newConceptGoodbye: "Veuillez envoyer le formulaire pour finaliser votre désinscription.",
+        newConceptWelcome: "Veuillez envoyer le formulaire en bas de la page suivante pour finaliser votre inscription.",
+        newConceptGoodbye: "Veuillez envoyer le formulaire en bas de la page suivante pour finaliser votre désinscription.",
         cookies: "Autoriser les cookies pour mémoriser vos données lors de prochaines visites ?",
         firstName: "PRENOM:*",
         lastName: "NOM:*",
@@ -52,8 +50,8 @@ const translations = {
         welcome2: "from",
         goodbye1: "Goodbye",
         goodbye2: "from",
-        newConceptWelcome: "Please submit the form to complete your check-in.",
-        newConceptGoodbye: "Please submit the form to complete your check-out.",
+        newConceptWelcome: "Please submit the form at the bottom of the next page to complete your check-in.",
+        newConceptGoodbye: "Please submit the form at the bottom of the next page to complete your check-out.",
         cookies: "Allow cookies to remember your data for future visits?",
         firstName: "FIRST NAME:*",
         lastName: "LAST NAME:*",
