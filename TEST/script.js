@@ -2,69 +2,69 @@
 const translations = {
  nl: {
     clearData:         "Opgeslagen gegevens wissen",
-    welcome1:         "Welkom terug",
-    welcome2:         "van",
-    // NEW: added goodbye messages
-    goodbye1:       "Tot ziens",
-    goodbye2:       "van",
-    newConcept:         "Verzend het formulier om uw (in-/uit)schrijving af te ronden.",
-    cookies:         "Cookies toestaan om uw gegevens voor toekomstige bezoeken te onthouden?",
+    welcome1:          "Welkom terug",
+    welcome2:          "van",
+    goodbye1:          "Tot ziens",
+    goodbye2:          "van",
+    newConceptWelcome: "Verzend het formulier om uw inschrijving af te ronden.",
+    newConceptGoodbye: "Verzend het formulier om uw uitschrijving af te ronden.",
+    cookies:           "Cookies toestaan om uw gegevens voor toekomstige bezoeken te onthouden?",
     firstName:         "VOORNAAM:*",
-    lastName:         "NAAM:*",
-    company:         "BEDRIJF:*",
-    forTheAttnOf:        "AFSPRAAK MET:*",
-    mobilePhone:        "GSM:*\r\nVoor uw en onze veiligheid, vul uw mobiele nummer correct in! Bedankt.",
-    licensePlate:        "NUMMERPLAAT*",
-    safetyInstructions:     "Ik verklaar dat ik de veiligheids- en brandveiligheidsinstructies heb gelezen en hiermee akkoord ga.",
-    denySafetyInstructions:    "Je ging niet akkoord met de veiligheids- en brandveiligheidsinstructies.\r\nRegistratie werd niet voltooid.",
-    notCompleted:        "Registratie werd niet voltooid.",
-    fillFieldCorrectly:    "Vul het veld correct in",
-    alertClearData:        "Bent u zeker dat u de opgeslagen gegevens wenst te wissen?",
-    alertDataCleared:    "Opgeslagen gegevens gewist."
+    lastName:          "NAAM:*",
+    company:           "BEDRIJF:*",
+    forTheAttnOf:      "AFSPRAAK MET:*",
+    mobilePhone:       "GSM:*\r\nVoor uw en onze veiligheid, vul uw mobiele nummer correct in! Bedankt.",
+    licensePlate:      "NUMMERPLAAT*",
+    safetyInstructions:"Ik verklaar dat ik de veiligheids- en brandveiligheidsinstructies heb gelezen en hiermee akkoord ga.",
+    denySafetyInstructions:"Je ging niet akkoord met de veiligheids- en brandveiligheidsinstructies.\r\nRegistratie werd niet voltooid.",
+    notCompleted:      "Registratie werd niet voltooid.",
+    fillFieldCorrectly:"Vul het veld correct in",
+    alertClearData:    "Bent u zeker dat u de opgeslagen gegevens wenst te wissen?",
+    alertDataCleared:  "Opgeslagen gegevens gewist."
  },
  fr: {
-    clearData:        "Effacer les données enregistrées",
-    welcome1:        "Bienvenu de retour",
-    welcome2:        "de",
-    // NEW: added goodbye messages
-    goodbye1:       "Au revoir",
-    goodbye2:       "de",
-    newConcept:        "Veuillez envoyer le formulaire pour finaliser votre inscription/désinscription.",
-    cookies:        "Autoriser les cookies pour mémoriser vos données lors de prochaines visites ?",
-    firstName:        "PRENOM:*",
-    lastName:        "NOM:*",
-    company:        "SOCIETE:*",
-    forTheAttnOf:        "RENDEZ-VOUS AVEC:*",
-    mobilePhone:        "TELEPHONE PORTABLE:*\r\nPour votre sécurité et la nôtre, veuillez renseigner correctement votre numéro de portable ! Merci.",
-    licensePlate:        "PLAQUE D'IMMATRICULATION:*",
-    safetyInstructions:    "Je déclare avoir pris connaissance des consignes de sécurité et de prévention incendie, et de les accepter.",
-    denySafetyInstructions:    "Vous n'avez pas accepté les consignes de sécurité et de prévention incendie.\r\nL'enregistrement n'a pas été complété.",
-    notCompleted:        "L'enregistrement n'a pas été complété.",
-    fillFieldCorrectly:    "Veuillez remplir correctement le champ",
-    alertClearData:        "Êtes-vous sûr de vouloir effacer les données enregistrées ?",
-    alertDataCleared:    "Données sauvegardées effacées."
+    clearData:         "Effacer les données enregistrées",
+    welcome1:          "Bienvenu de retour",
+    welcome2:          "de",
+    goodbye1:          "Au revoir",
+    goodbye2:          "de",
+    newConceptWelcome: "Veuillez envoyer le formulaire pour finaliser votre inscription.",
+    newConceptGoodbye: "Veuillez envoyer le formulaire pour finaliser votre désinscription.",
+    cookies:           "Autoriser les cookies pour mémoriser vos données lors de prochaines visites ?",
+    firstName:         "PRENOM:*",
+    lastName:          "NOM:*",
+    company:           "SOCIETE:*",
+    forTheAttnOf:      "RENDEZ-VOUS AVEC:*",
+    mobilePhone:       "TELEPHONE PORTABLE:*\r\nPour votre sécurité et la nôtre, veuillez renseigner correctement votre numéro de portable ! Merci.",
+    licensePlate:      "PLAQUE D'IMMATRICULATION:*",
+    safetyInstructions:"Je déclare avoir pris connaissance des consignes de sécurité et de prévention incendie, et de les accepter.",
+    denySafetyInstructions:"Vous n'avez pas accepté les consignes de sécurité et de prévention incendie.\r\nL'enregistrement n'a pas été complété.",
+    notCompleted:      "L'enregistrement n'a pas été complété.",
+    fillFieldCorrectly:"Veuillez remplir correctement le champ",
+    alertClearData:    "Êtes-vous sûr de vouloir effacer les données enregistrées ?",
+    alertDataCleared:  "Données sauvegardées effacées."
  },
  en: {
-    clearData:        "Clear saved data",
-    welcome1:        "Welcome back",
-    welcome2:        "from",
-    // NEW: added goodbye messages
-    goodbye1:       "Goodbye",
-    goodbye2:       "from",
-    newConcept:        "Please submit the form to complete your check-in/check-out.",
-    cookies:        "Allow cookies to remember your data for future visits?",
-    firstName:        "FIRST NAME:*",
-    lastName:        "LAST NAME:*",
-    company:        "COMPANY:*",
-    forTheAttnOf:        "FOR THE ATTN OF:*",
-    mobilePhone:        "MOBILE PHONE:*\r\nFor your and our safety, please fill out your mobile number correctly! Thanks.",
-    licensePlate:        "LICENSE PLATE:*",
-    safetyInstructions:    "I hereby declare that I have read and understood the safety and fire safety instructions, and I agree to comply with them.",
+    clearData:         "Clear saved data",
+    welcome1:          "Welcome back",
+    welcome2:          "from",
+    goodbye1:          "Goodbye",
+    goodbye2:          "from",
+    newConceptWelcome: "Please submit the form to complete your check-in.",
+    newConceptGoodbye: "Please submit the form to complete your check-out.",
+    cookies:           "Allow cookies to remember your data for future visits?",
+    firstName:         "FIRST NAME:*",
+    lastName:          "LAST NAME:*",
+    company:           "COMPANY:*",
+    forTheAttnOf:      "FOR THE ATTN OF:*",
+    mobilePhone:       "MOBILE PHONE:*\r\nFor your and our safety, please fill out your mobile number correctly! Thanks.",
+    licensePlate:      "LICENSE PLATE:*",
+    safetyInstructions:"I hereby declare that I have read and understood the safety and fire safety instructions, and I agree to comply with them.",
     denySafetyInstructions:"You didn't accept the safety and fire safety instructions.\r\nRegistration was not completed.",
-    notCompleted:        "Registration was not completed.",
-    fillFieldCorrectly:    "Please fill in the field correctly",
-    alertClearData:        "Are you sure you want to delete the stored data?",
-    alertDataCleared:    "Saved data cleared."
+    notCompleted:      "Registration was not completed.",
+    fillFieldCorrectly:"Please fill in the field correctly",
+    alertClearData:    "Are you sure you want to delete the stored data?",
+    alertDataCleared:  "Saved data cleared."
  }
 };
 //Detect language (default to 'en' if unknown).
@@ -76,9 +76,7 @@ const t = translations[langCode];
 //Function that starts when the page is loaded.
 function init()
 {
-    //Bind the function deleteCookie to the Button clearData.
     document.getElementById('clearData').addEventListener('click', ()=> {deleteCookie('cVisitorThule');});     
-    //Change the document and button language.
     document.documentElement.lang = langCode;
     document.getElementById("clearData").innerHTML = t.clearData;     
     checkCookie();
@@ -106,11 +104,8 @@ function getCookie(cCookieName)
             let value = c.substring(name.length, c.length);
             try
             {
-                //If it's a JSON string.
                 return JSON.parse(value);
-            }
-            catch (e)
-            {
+                       {
                 return value;
             }
         }
@@ -123,26 +118,21 @@ function checkCookie()
     let user = getCookie("cVisitorThule");
     if (user && user.sFirstName && user.sLastName && user.sCompany && user.sForTheAttnOf && user.sMobilePhone && user.sLicensePlate)
     {
-        // --- NEW: per-day visit tracking ---
-        const today = new Date().toISOString().slice(0,10); // YYYY-MM-DD
+        const today = new Date().toISOString().slice(0,10);
         if (user.visitDate === today) {
-            // same day -> increment
-            user.visitCount = (typeof user.visitCount === "number" ? user.visitCount : parseInt(user.visitCount || "0", 10)) + 1;
+            === "number" ? user.visitCount : parseInt(user.visitCount || "0", 10)) + 1;
         } else {
-            // new day -> reset
             user.visitDate = today;
             user.visitCount = 1;
         }
-        // persist the updated tracking info
         setCookie("cVisitorThule", user, 365);
 
-        // choose the right message: odd => welcome, even => goodbye
         const isEven = (user.visitCount % 2) === 0;
         const firstPart = isEven ? t.goodbye1 : t.welcome1;
         const secondPart = isEven ? t.goodbye2 : t.welcome2;
 
         alert(`${firstPart} ${user.sFirstName} ${user.sLastName} ${secondPart} ${user.sCompany}!`);
-        alert(t.newConcept);
+        alert(isEven ? t.newConceptGoodbye : t.newConceptWelcome);
         changeUrl(user.sFirstName, user.sLastName, user.sCompany, user.sForTheAttnOf, user.sMobilePhone, user.sLicensePlate);
     }
     else
@@ -164,13 +154,11 @@ function checkCookie()
             if (sLicensePlate === null) return;
             if (confirm(t.safetyInstructions))
             {
-                // --- NEW: initialize visit tracking on first save ---
                 const today = new Date().toISOString().slice(0,10);
                 let userInfo = {sFirstName, sLastName, sCompany, sForTheAttnOf, sMobilePhone, sLicensePlate, visitDate: today, visitCount: 1};
                 setCookie("cVisitorThule", userInfo, 365);                 
-                //Set a timeout so the Cookie has time to be written to disk.
                 setTimeout(() => {
-                    alert(t.newConcept);
+                    alert(t.newConceptWelcome);
                     changeUrl(sFirstName, sLastName, sCompany, sForTheAttnOf, sMobilePhone, sLicensePlate);
                 }, 500);
             }
@@ -185,23 +173,19 @@ function checkCookie()
         }
     }
 }
-//Keep prompting untill the data is filled in correctly.
 function promptUntilFilled(message)
 {
  let input;
  while (true)
  {
  input = prompt(message);
- // user canceled
  if (input === null)
     {
-        //Alert user that he did not complete the registration.
         alert(t.notCompleted);
         return null;
     }
  input = input.trim();
  if (input) return input;
-    // Alert user that input was empty or invalid.
  alert(`${t.fillFieldCorrectly}:\n${message}`);
  }
 }
