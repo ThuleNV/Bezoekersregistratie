@@ -121,9 +121,9 @@ function checkCookie() {
         const secondPart = isEven ? t.goodbye2 : t.welcome2;
 
         alert(`${firstPart} ${user.sFirstName} ${user.sLastName} ${secondPart} ${user.sCompany}!`);
+	alert(isEven ? t.newConceptGoodbye : t.newConceptWelcome);
 	setCookie("cVisitorThule", user, 365);
         setTimeout(() => {
-            alert(isEven ? t.newConceptGoodbye : t.newConceptWelcome);
             changeUrl(user.sFirstName, user.sLastName, user.sCompany, user.sForTheAttnOf, user.sMobilePhone, user.sLicensePlate);
         }, 500);
     } else {
