@@ -115,15 +115,18 @@ function checkCookie() {
             user.visitDate = today;
             user.visitCount = 1;
         }
-        setCookie("cVisitorThule", user, 365);
 
         const isEven = (user.visitCount % 2) === 0;
         const firstPart = isEven ? t.goodbye1 : t.welcome1;
         const secondPart = isEven ? t.goodbye2 : t.welcome2;
 
         alert(`${firstPart} ${user.sFirstName} ${user.sLastName} ${secondPart} ${user.sCompany}!`);
-        alert(isEven ? t.newConceptGoodbye : t.newConceptWelcome);
-        changeUrl(user.sFirstName, user.sLastName, user.sCompany, user.sForTheAttnOf, user.sMobilePhone, user.sLicensePlate);
+	setCookie("cVisitorThule", user, 365);
+        setTimeout(() => {
+            alert(isEven ? t.newConceptGoodbye : t.newConceptWelcome);
+            changeUrl(user.sFirstName, user.sLastName, user.sCompany, user.sForTheAttnOf, user.sMobilePhone, user.sLicensePlate);
+        }, 500);
+    }
     } else {
         let consent = confirm(t.cookies);
         if (consent) {
