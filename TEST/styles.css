@@ -1,145 +1,49 @@
-/* === Existing styles (unchanged) === */
 iframe {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  border: none;
-  display: block;
-  background: transparent;
-  z-index: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    border: none;
+    display: block;
+    background: transparent;
+    z-index: 0;
 }
+
 button {
-  all: unset;
-  position: absolute;
-  top: 2px;
-  right: 22px;
-  z-index: 10;
-  padding: 10px 20px;
-  font-size: 2.4rem;
-  color: #FFFFFF;
-  background-color: #756A65;
-  cursor: pointer;
-  font-weight: 600;
-  border-radius: 4px;
-  border: 1px solid transparent;
-  text-align: center;
+    all: unset;
+    position: absolute;
+    top: 2px;
+    right: 22px;
+    z-index: 10;
+    padding: 10px 20px;
+    font-size: 2.4rem;
+    color: #FFFFFF;
+    background-color: #756A65;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    text-align: center;
 }
-button:hover {
-  background-color: #5B534F;
-  color: #EFEEED;
-}
+
+    button:hover {
+        background-color: #5B534F;
+        color: #EFEEED;
+    }
+
 body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
+
 @media (max-width: 600px) {
-  button {
-    background-color: rgba(0, 0, 0, 0.6);
-    font-size: 0.97rem;
-    padding: 8px 16px;
-    top: 61px;
-    right: 54px;
-  }
-}
-
-/* === Additions: modal used for alert/confirm/prompt (brand colors only) === */
-#modalAlert {
-  position: fixed;
-  inset: 0;
-  display: none;               /* toggled via .active */
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;               /* above iframe & button */
-  background: rgba(0, 0, 0, 0.35);
-}
-
-#modalAlert.active { display: flex; }
-
-#modalAlert .box {
-  max-width: min(92vw, 520px);
-  width: 100%;
-  background: #756A65;         /* brand base */
-  color: #FFFFFF;
-  border-radius: 8px;
-  padding: 16px 20px;
-  border: 1px solid #5B534F;   /* brand hover color as border */
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
-}
-
-#modalAlert .message {
-  white-space: pre-wrap;
-  line-height: 1.35;
-  font-size: 1rem;
-}
-
-#modalAlert .prompt-field {
-  margin-top: 10px;
-}
-
-#modalAlert .prompt-input {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 10px 12px;
-  border-radius: 4px;
-  border: 1px solid #5B534F;
-  background: #EFEEED;         /* light brand tone */
-  color: #5B534F;              /* dark brand tone */
-  font-size: 1rem;
-  outline: none;
-}
-
-#modalAlert .prompt-input:focus-visible {
-  border-color: #756A65;
-  box-shadow: 0 0 0 3px rgba(239, 238, 237, 0.35); /* #EFEEED tint */
-}
-
-#modalAlert .actions {
-  margin-top: 12px;
-  text-align: right;
-}
-
-/* Use custom anchors for modal buttons to avoid the global `button{...}` rule */
-#modalAlert .modal-btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background: #5B534F;   /* hover color as base */
-  color: #EFEEED;
-  border-radius: 4px;
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
-  user-select: none;
-  outline: none;
-}
-
-#modalAlert .modal-btn:hover {
-  background: #756A65;   /* base color on hover for subtle invert */
-  color: #FFFFFF;
-  outline: 1px solid #EFEEED;
-}
-
-#modalAlert .modal-btn:focus-visible {
-  outline: 2px solid #EFEEED;
-  outline-offset: 2px;
-}
-
-#modalAlert .modal-btn.outline {
-  background: transparent;
-  color: #FFFFFF;
-  border: 1px solid #EFEEED;
-}
-
-#modalAlert .modal-btn + .modal-btn {
-  margin-left: 8px;
-}
-
-/* A11y helper for the modal title */
-.visually-hidden {
-  position: absolute !important;
-  height: 1px; width: 1px;
-  overflow: hidden; clip: rect(1px, 1px, 1px, 1px);
-  white-space: nowrap;
+    button {
+	background-color: rgba(0, 0, 0, 0.6);
+        font-size: 0.97rem;
+        padding: 8px 16px;
+        top: 61px;
+	right: 54px;
+    }
 }

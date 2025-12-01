@@ -1,44 +1,13 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Bezoekersregistratie</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="./styles.css" rel="stylesheet"ame UI: full-screen form iframe + clear-data button -->
-    <iframe name="ifrVisitorRegistration" src="" aria-label="Visitor Registration Form"></iframe>
-    <button id="clearData">Opgeslagen gegevens wissen</button>
-
-    <!-- Reusable modal (replaces alert/confirm/prompt).
-         The script will auto-create this if it's missing. -->
-    <div
-      id="modalAlert"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="modalAlertTitle"
-      aria-describedby="modalAlertMsg">
-      <div class="box">
-        <h2 id="modalAlertTitle" class="visually-hidden">Bericht</h2>
-
-        <!-- Message area -->
-        <div id="modalAlertMsg" class="message" aria-live="polite"></div>
-
-        <!-- Prompt input (shown only for prompt) -->
-        <div class="prompt-field" id="modalPromptField" hidden>
-          <input
-            id="modalPromptInput"
-            class="prompt-input"
-            type="text"
-            autocomplete="off"
-            inputmode="text"
-          />
-        </div>
-
-        <!-- Action buttons (OK / Cancel) get injected here -->
-        <div class="actions" id="modalActions"></div>
-      </div>
-    </div>
-
-    <!-- ✅ Correct script include (defer recommended) -->
-    <script>./script.js</script>
-  </body>
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="script.js" defer></script>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<iframe name="ifrVisitorRegistration"></iframe>
+	<button type="button" id="clearData">Opgeslagen gegevens wissen</button>
+</body>
 </html>
